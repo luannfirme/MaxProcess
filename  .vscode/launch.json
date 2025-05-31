@@ -2,13 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": ".NET Launch (MeuApp.WebApi)",
+      "name": ".NET Launch (MaxProcess.API)",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/src/MeuApp.WebApi/bin/Debug/net8.0/MeuApp.WebApi.dll",
+      "program": "${workspaceFolder}/MaxProcess.API/MaxProcess.API/bin/Debug/net8.0/MaxProcess.API.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/src/MeuApp.WebApi",
+      "cwd": "${workspaceFolder}/MaxProcess.API/MaxProcess.API",
       "console": "integratedTerminal",
       "stopAtEntry": false
     }
