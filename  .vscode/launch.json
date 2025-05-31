@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Launch (MeuApp.WebApi)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/MeuApp.WebApi/bin/Debug/net8.0/MeuApp.WebApi.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/MeuApp.WebApi",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}
