@@ -10,7 +10,7 @@ using MaxProcess.Application;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigurePersistenceApp(builder.Configuration);
-builder.Services.ConfigureApplicationApp();
+builder.Services.ConfigureApplicationApp(builder.Configuration);
 
 builder.Services.AddSingleton<JwtService>();
 
