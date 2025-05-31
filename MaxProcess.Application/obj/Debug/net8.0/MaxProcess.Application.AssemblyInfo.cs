@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaxProcess.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f9519fca670c88b20bbadafec6ff5cb7930609e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8e4e7eec6efe5d158149532218e28a30d9fb3fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaxProcess.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaxProcess.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

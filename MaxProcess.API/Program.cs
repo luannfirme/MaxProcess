@@ -5,10 +5,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MaxProcess.Persistence;
 using MaxProcess.Persistence.Data;
+using MaxProcess.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigurePersistenceApp(builder.Configuration);
+builder.Services.ConfigureApplicationApp();
 
 builder.Services.AddSingleton<JwtService>();
 
