@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaxProcess.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee28aa2b4453770a1068068f127d596bd4ca5377")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa30a2aaf56b62b7a87ce74313fd0ee40f44dca9")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaxProcess.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaxProcess.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

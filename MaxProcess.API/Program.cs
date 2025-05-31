@@ -1,18 +1,14 @@
 using MaxProcess.Persistence;
 using MaxProcess.Application;
-using MaxProcess.CrossCutting.Security;
-using MaxProcess.Application.Interfaces;
+using MaxProcess.CrossCutting;
+using MaxProcess.API.Configure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigurePersistenceApp(builder.Configuration);
 builder.Services.ConfigureApplicationApp(builder.Configuration);
-builder.Services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
-
-builder.Services.AddAuthorization();
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.ConfigureCrossCuttingApp();
+builder.Services.ConfigureWebApiApp(builder.Configuration);
 
 var app = builder.Build();
 

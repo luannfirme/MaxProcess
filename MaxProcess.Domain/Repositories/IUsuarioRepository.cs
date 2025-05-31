@@ -6,6 +6,7 @@ public interface IUsuarioRepository
 {
     Task<Usuario?> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default);
     Task<Usuario?> ObterPorEmailAsync(string email, CancellationToken cancellationToken = default);
+    Task<Usuario?> ObterPorLoginAsync(string login, CancellationToken cancellationToken = default);
     Task<IEnumerable<Usuario>> ObterTodosAsync(CancellationToken cancellationToken = default);
     Task AdicionarAsync(Usuario usuario, CancellationToken cancellationToken = default);
     Task AtualizarAsync(Usuario usuario, CancellationToken cancellationToken = default);

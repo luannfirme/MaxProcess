@@ -1,6 +1,6 @@
-using JwtAuthApi.Models;
-using JwtAuthApi.Repositories;
-using JwtAuthApi.Services;
+using MaxProcess.Application.Commands.Usuarios.AuthenticateUsuario;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JwtAuthApi.Controllers
@@ -9,30 +9,23 @@ namespace JwtAuthApi.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly JwtService _jwtService;
-        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IMediator _mediator;
 
-        public AuthController(JwtService jwtService, IUsuarioRepository usuarioRepository)
+        public AuthController(IMediator mediator)
         {
-            _jwtService = jwtService;
-            _usuarioRepository = usuarioRepository;
+            _mediator = mediator;
         }
 
         [HttpPost("signin")]
-        public IActionResult SignIn([FromBody] LoginRequest request)
+        [AllowAnonymous]
+        public async Task<IActionResult> SignIn([FromBody] AuthenticateUsuarioCommand command)
         {
-            var user = _usuarioRepository.GetByLogin(request.Username);
-            if (user == null || user.Senha != request.Password)
-                return Unauthorized("Usuário ou senha inválidos");
+            var token = await _mediator.Send(command);
 
-            var token = _jwtService.GenerateToken(user.Login);
-            return Ok(new { token });
+            if (string.IsNullOrEmpty(token))
+                return Unauthorized(new { Message = "Email ou senha inválidos." });
+
+            return Ok(new { Token = token });
         }
-    }
-
-    public class LoginRequest
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
     }
 }

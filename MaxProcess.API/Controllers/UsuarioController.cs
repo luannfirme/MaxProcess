@@ -1,61 +1,64 @@
-using JwtAuthApi.Models;
-using JwtAuthApi.Repositories;
+using MaxProcess.Application.Commands.Usuarios.CreateUsuario;
+using MaxProcess.Application.Commands.Usuarios.UpdateUsuario;
+using MaxProcess.Application.DTOs;
+using MaxProcess.Application.Queries.Usuario.GetAllUsuarios;
+using MaxProcess.Application.Queries.Usuario.GetUsuarioById;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace JwtAuthApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    // [Authorize]
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioRepository _repository;
+        private readonly IMediator _mediator;
 
-        public UsuarioController(IUsuarioRepository repository)
+        public UsuarioController(IMediator mediator)
         {
-            _repository = repository;
+            _mediator = mediator;
         }
 
+
         [HttpGet]
-        public IActionResult GetAll() => Ok(_repository.GetAll());
+        public async Task<ActionResult<IEnumerable<UsuarioDto>>> GetAll()
+        {
+            var query =  new GetAllUsuariosQuery();
+            var usuarios = await _mediator.Send(query);
+            return Ok(usuarios);
+        }
 
         [HttpGet("{id:guid}")]
-        public IActionResult GetById(Guid id)
+        public async Task<ActionResult<UsuarioDto?>> GetById(Guid id)
         {
-            var usuario = _repository.GetById(id);
-            return usuario == null ? NotFound() : Ok(usuario);
+            var query = new GetUsuarioByIdQuery(id);
+            var usuario = await _mediator.Send(query);
+            if (usuario is null)
+                return NotFound();
+
+            return Ok(usuario);
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Usuario usuario)
+        public async Task<ActionResult<Guid>> Create([FromBody] CreateUsuarioCommand command)
         {
-            if (_repository.ExistsByLoginOrEmail(usuario.Login, usuario.Email))
-                return Conflict("Já existe um usuário com este login ou email.");
+            var novoId = await _mediator.Send(command);
 
-            _repository.Create(usuario);
-            return CreatedAtAction(nameof(GetById), new { id = usuario.Id }, usuario);
+            return CreatedAtAction(nameof(GetById), new { id = novoId }, novoId);
         }
 
         [HttpPut("{id:guid}")]
-        public IActionResult Update(Guid id, [FromBody] Usuario usuario)
+        public async Task<ActionResult> Update(Guid id, [FromBody] UpdateUsuarioCommand command)
         {
-            var existing = _repository.GetById(id);
-            if (existing == null) return NotFound();
+            if (id != command.Id)
+                return BadRequest("O id da URL deve ser igual ao id do corpo da requisição.");
 
-            usuario.Id = id;
-            _repository.Update(usuario);
-            return NoContent();
-        }
+            var updated = await _mediator.Send(command);
+            if (!updated)
+                return NotFound();
 
-        [HttpDelete("{id:guid}")]
-        public IActionResult Delete(Guid id)
-        {
-            var existing = _repository.GetById(id);
-            if (existing == null) return NotFound();
-
-            _repository.Delete(id);
             return NoContent();
         }
     }

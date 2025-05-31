@@ -3,4 +3,12 @@ using MediatR;
 
 namespace MaxProcess.Application.Queries.Usuario.GetUsuarioById;
 
-public sealed record GetUsuarioByIdQuery(Guid Id) : IRequest<UsuarioDto?>;
+public class GetUsuarioByIdQuery : IRequest<UsuarioDto?>
+{
+    public Guid Id { get; init; }
+
+    public GetUsuarioByIdQuery(Guid id)
+    {
+        Id = id;
+    }
+}

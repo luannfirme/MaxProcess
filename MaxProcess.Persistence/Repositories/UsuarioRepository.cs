@@ -24,6 +24,11 @@ public class UsuarioRepository : IUsuarioRepository
         return await _context.Usuarios.AsNoTracking().FirstOrDefaultAsync(u => u.Email == email, cancellationToken);
     }
 
+    public async Task<Usuario?> ObterPorLoginAsync(string login, CancellationToken cancellationToken = default)
+    {
+        return await _context.Usuarios.AsNoTracking().FirstOrDefaultAsync(u => u.Login == login, cancellationToken);
+    }
+
     public async Task<IEnumerable<Usuario>> ObterTodosAsync(CancellationToken cancellationToken = default)
     {
         return await _context.Usuarios.AsNoTracking().ToListAsync(cancellationToken);
