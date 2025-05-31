@@ -5,21 +5,23 @@ namespace MaxProcess.Application.Shared.Behavior;
 
 public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {
-    private readonly IValidator<TRequest> _validator;
+    private readonly IEnumerable<IValidator<TRequest>> _validators;
 
-    public ValidationBehavior(IValidator<TRequest> validator)
+    public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
     {
-        _validator = validator;
+        _validators = validators;
     }
+
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-        if (_validator is null)
+        if (!_validators.Any())
             return await next();
 
-        var validationResult = await _validator.ValidateAsync(request, cancellationToken);
+        var context = new ValidationContext<TRequest>(request);
+        var failures = _validators.Select(v => v.Validate(context)).SelectMany(result => result.Errors).Where(error => error != null).ToList();
 
-        if (!validationResult.IsValid)
-            throw new ValidationException(validationResult.Errors);
+        if (failures.Count != 0)
+            throw new ValidationException(failures);
 
         return await next();
     }

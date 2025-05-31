@@ -16,14 +16,14 @@ namespace JwtAuthApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("signin")]
+        [HttpPost("Signin")]
         [AllowAnonymous]
         public async Task<IActionResult> SignIn([FromBody] AuthenticateUsuarioCommand command)
         {
             var token = await _mediator.Send(command);
 
             if (string.IsNullOrEmpty(token))
-                return Unauthorized(new { Message = "Email ou senha inválidos." });
+                return Unauthorized(new { Message = "Login ou senha inválidos." });
 
             return Ok(new { Token = token });
         }

@@ -1,5 +1,5 @@
-using System;
 using System.Text;
+using MaxProcess.API.Filters;
 using MaxProcess.Application.Shared.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -37,7 +37,10 @@ public static class DependencyInjection
 
         services.AddAuthorization();
 
-        services.AddControllers();
+        services.AddControllers(options =>
+        {
+            options.Filters.Add<GlobalExceptionFilter>();
+        });
 
         services.AddEndpointsApiExplorer();
 

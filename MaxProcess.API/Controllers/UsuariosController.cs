@@ -11,12 +11,12 @@ namespace JwtAuthApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    // [Authorize]
-    public class UsuarioController : ControllerBase
+    [Authorize]
+    public class UsuariosController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public UsuarioController(IMediator mediator)
+        public UsuariosController(IMediator mediator)
         {
             _mediator = mediator;
         }

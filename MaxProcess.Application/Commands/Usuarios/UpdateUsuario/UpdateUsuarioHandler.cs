@@ -21,6 +21,7 @@ public class UpdateUsuarioHandler : IRequestHandler<UpdateUsuarioCommand, bool>
     public async Task<bool> Handle(UpdateUsuarioCommand request, CancellationToken cancellationToken)
     {
         var usuario = await _usuarioRepository.ObterPorIdAsync(request.Id, cancellationToken);
+        
         if (usuario is null)
             return false;
 
