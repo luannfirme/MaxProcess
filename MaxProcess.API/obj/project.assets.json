@@ -47,6 +47,19 @@
           }
         }
       },
+      "BCrypt.Net-Next/4.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "FluentValidation/12.0.0": {
         "type": "package",
         "compile": {
@@ -1665,6 +1678,21 @@
           "bin/placeholder/MaxProcess.Application.dll": {}
         }
       },
+      "MaxProcess.CrossCutting/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BCrypt.Net-Next": "4.0.2",
+          "MaxProcess.Application": "1.0.0",
+          "MaxProcess.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MaxProcess.CrossCutting.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MaxProcess.CrossCutting.dll": {}
+        }
+      },
       "MaxProcess.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -1730,6 +1758,39 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "BCrypt.Net-Next/4.0.2": {
+      "sha512": "LyNKpIpr4GraRD9+xlTviyxxbZpF6J4xJf7DvraC1mR8PSN/KonGc4rt8C/fjkD3vaEvgA7BcvsbHFCOjgczyQ==",
+      "type": "package",
+      "path": "bcrypt.net-next/4.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-next.4.0.2.nupkg.sha512",
+        "bcrypt.net-next.nuspec",
+        "lib/net20/BCrypt.Net-Next.dll",
+        "lib/net20/BCrypt.Net-Next.xml",
+        "lib/net35/BCrypt.Net-Next.dll",
+        "lib/net35/BCrypt.Net-Next.xml",
+        "lib/net40/BCrypt.Net-Next.dll",
+        "lib/net40/BCrypt.Net-Next.xml",
+        "lib/net452/BCrypt.Net-Next.dll",
+        "lib/net452/BCrypt.Net-Next.xml",
+        "lib/net462/BCrypt.Net-Next.dll",
+        "lib/net462/BCrypt.Net-Next.xml",
+        "lib/net472/BCrypt.Net-Next.dll",
+        "lib/net472/BCrypt.Net-Next.xml",
+        "lib/net48/BCrypt.Net-Next.dll",
+        "lib/net48/BCrypt.Net-Next.xml",
+        "lib/net5.0/BCrypt.Net-Next.dll",
+        "lib/net5.0/BCrypt.Net-Next.xml",
+        "lib/netcoreapp3.1/BCrypt.Net-Next.dll",
+        "lib/netcoreapp3.1/BCrypt.Net-Next.xml",
+        "lib/netstandard2.0/BCrypt.Net-Next.dll",
+        "lib/netstandard2.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.1/BCrypt.Net-Next.dll",
+        "lib/netstandard2.1/BCrypt.Net-Next.xml"
       ]
     },
     "FluentValidation/12.0.0": {
@@ -4440,6 +4501,11 @@
       "path": "../MaxProcess.Application/MaxProcess.Application.csproj",
       "msbuildProject": "../MaxProcess.Application/MaxProcess.Application.csproj"
     },
+    "MaxProcess.CrossCutting/1.0.0": {
+      "type": "project",
+      "path": "../MaxProcess.CrossCutting/MaxProcess.CrossCutting.csproj",
+      "msbuildProject": "../MaxProcess.CrossCutting/MaxProcess.CrossCutting.csproj"
+    },
     "MaxProcess.Domain/1.0.0": {
       "type": "project",
       "path": "../MaxProcess.Domain/MaxProcess.Domain.csproj",
@@ -4453,6 +4519,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "MaxProcess.CrossCutting >= 1.0.0",
       "MaxProcess.Persistence >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.16",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.16",
@@ -4485,6 +4552,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "/home/firme/Documentos/MaxProcess/MaxProcess.CrossCutting/MaxProcess.CrossCutting.csproj": {
+              "projectPath": "/home/firme/Documentos/MaxProcess/MaxProcess.CrossCutting/MaxProcess.CrossCutting.csproj"
+            },
             "/home/firme/Documentos/MaxProcess/MaxProcess.Persistence/MaxProcess.Persistence.csproj": {
               "projectPath": "/home/firme/Documentos/MaxProcess/MaxProcess.Persistence/MaxProcess.Persistence.csproj"
             }

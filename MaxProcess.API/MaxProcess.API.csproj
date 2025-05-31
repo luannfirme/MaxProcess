@@ -11,6 +11,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="../MaxProcess.CrossCutting/MaxProcess.CrossCutting.csproj" />
     <ProjectReference Include="../MaxProcess.Persistence/MaxProcess.Persistence.csproj" />
   </ItemGroup>
 </Project>

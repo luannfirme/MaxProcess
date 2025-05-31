@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Xk3dx2za/SM=",
+  "dgSpecHash": "i/f5k/C2NvY=",
   "success": true,
   "projectFilePath": "/home/firme/Documentos/MaxProcess/MaxProcess.API/MaxProcess.API.csproj",
   "expectedPackageFiles": [
     "/home/firme/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/firme/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
+    "/home/firme/.nuget/packages/bcrypt.net-next/4.0.2/bcrypt.net-next.4.0.2.nupkg.sha512",
     "/home/firme/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
     "/home/firme/.nuget/packages/fluentvalidation.dependencyinjectionextensions/12.0.0/fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
     "/home/firme/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
