@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaxProcess.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d50a2b20f769247ddc9c2610106e58b147d3d66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85c50d0d255403747e7e3a21fe50b4eac8ce8f62")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaxProcess.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaxProcess.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
