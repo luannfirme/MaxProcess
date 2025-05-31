@@ -6,7 +6,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/MaxProcess.API/MaxProcess.API/bin/Debug/net8.0/MaxProcess.API.dll",
+      "program": "${workspaceFolder}/MaxProcess.API/bin/Debug/net8.0/MaxProcess.API.dll",
       "args": [],
       "cwd": "${workspaceFolder}/MaxProcess.API/MaxProcess.API",
       "console": "integratedTerminal",

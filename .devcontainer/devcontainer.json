@@ -4,14 +4,8 @@
     "dockerfile": "Dockerfile"
   },
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash",
     "dotnet.defaultSolution": "MaxProcess.sln"
   },
-  "extensions": [
-    "ms-dotnettools.csharp",
-    "ms-azuretools.vscode-docker",
-    "eamodio.gitlens"
-  ],
   "forwardPorts": [5000, 5001],
   "postCreateCommand": "dotnet restore",
   "remoteUser": "vscode"
